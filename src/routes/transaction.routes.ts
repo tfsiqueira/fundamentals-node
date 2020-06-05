@@ -23,9 +23,14 @@ transactionRouter.get('/', (request, response) => {
       total,
     };
 
-    Object.assign(allTransactionsAndBalance, { balance });
+    // Object.assign(allTransactionsAndBalance, { balance });
 
-    return response.json(allTransactionsAndBalance);
+    const allTransaction = {
+      transactions,
+      balance,
+    };
+
+    return response.json(allTransaction);
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
